@@ -8,6 +8,7 @@ pipeline {
             steps{
                   sh "dir"
                   sh "terraform init"
+                  sh "mkdir plans"
                   sh "terraform plan -out plans/plan-${COMMIT_HASH}.tf -no-color > plans/plan-${COMMIT_HASH}.txt"
 
                   script{
